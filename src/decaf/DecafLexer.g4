@@ -16,16 +16,17 @@ tokens
 
 LCURLY : '{';
 RCURLY : '}';
-
+RW: 'boolean' | 'break' | 'callout' | 'class' | 'continue' | 'else' | 'false' | 'for' |
+ 'int' | 'return' | 'true' | 'void';
 ID  :
-  ('a'..'z' | 'A'..'Z')+;
+  ['a'..'z''A'..'Z''_']+;
 
 WS_ : (' ' | '\n' ) -> skip;
 
 SL_COMMENT : '//' (~'\n')* '\n' -> skip;
 
-CHAR : '\'' (ESC|~'\'') '\'';
-STRING : '"' (ESC|~'"')* '"';
+CHARLITERAL : '\'' (ESC|~'\'') '\'';
+STRINGLITERAL : '"' (ESC|~'"')* '"';
 
 fragment
 ESC :  '\\' ('n'|'"');
