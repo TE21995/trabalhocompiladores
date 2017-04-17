@@ -14,35 +14,34 @@ tokens
   TK_class
 }
 
-LCURLY : '{';
-RCURLY : '}';
-
-ALPHA: ['a'..'z''A'..'Z''_'];
-
-DIGIT: [0-9];
-OCTAL: [0-7];
-HEXADECIMAL: [0-9a-fA-F];
-
-ALPHANUM: ALPHA | DIGIT;
+LCURLY : '{' ;
+RCURLY : '}' ;
 
 RW: 'boolean' | 'break' | 'callout' | 'class' | 'continue' | 'else' |
- 'false' | 'for' | 'int' | 'return' | 'true' | 'void';
+ 'false' | 'for' | 'int' | 'return' | 'true' | 'void' ;
 
-ID: ALPHA ALPHANUM*;
+BOOLEANLITERAL: 'true' | 'false' ;
 
-WS: (' ' | '\t' | '\n' | SL_COMMENT) -> skip;
+fragment ALPHA: [a-zA-Z_] ;
 
-SL_COMMENT : '//' (~'\n')* '\n';
+fragment ALPHANUM: ALPHA | DIGIT ;
 
+ID: ALPHA ALPHANUM* ;
 
-INTLITERAL: HEXADECIMALNUM | DECIMALNUM;
-HEXADECIMALNUM: '0x' HEXADECIMAL+;
-DECIMALNUM: DIGIT DIGIT*;
+fragment DIGIT: [0-9] ;
+fragment OCTAL: [0-7] ;
+fragment HEXADECIMAL: [0-9a-fA-F] ;
 
-BOOLEANLITERAL: 'true' | 'false';
+INTLITERAL: HEXADECIMALNUM | DECIMALNUM ;
+HEXADECIMALNUM: '0x' HEXADECIMAL+ ;
+DECIMALNUM: DIGIT DIGIT* ;
 
-CHARLITERAL : ''' (ESC|~''') ''';
-STRINGLITERAL : '"' (ESC|~'"')+ '"';
+CHARLITERAL: ''' (WS | .)*? ''' ;
 
-fragment
-ESC :  '\\' ('\n'|'"');
+STRINGLITERAL: '"' (WS | .)*? '"' ;
+
+LCOMMENT: '//' .*? '\r'? '\n' -> skip ;
+SCOMMENT: '/*' .*? '*/' -> skip ;
+
+WS : (' ' | '\t' | '\r' | '\n')+ -> skip ;
+
