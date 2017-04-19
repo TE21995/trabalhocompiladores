@@ -20,7 +20,9 @@ RCURLY : '}' ;
 RW: 'boolean' | 'break' | 'callout' | 'class' | 'continue' | 'else' |
  'false' | 'for' | 'int' | 'return' | 'true' | 'void' ;
 
-AOPER: '*' | '+' | '-'| '/' | '%'; 
+AOPER: '*' | '+' | '-'| '/' | '%';
+ROPER: '==' | '<' | '>' | '<=' | '>=' | '!=';
+LOPER: '&&' | '||' | '!'; 
 
 BOOL: 'true' | 'false' ;
 

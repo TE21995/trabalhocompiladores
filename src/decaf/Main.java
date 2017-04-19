@@ -34,6 +34,15 @@ class Main {
                                                case DecafLexer.RW:
                                                         type = "RESERVEDWORD";
                                                         break;
+                                               case DecafLexer.AOPER:
+                                                        type = "ARITMETICOPERATOR";
+                                                        break;
+                                               case DecafLexer.ROPER:
+                                                        type = "RELATIONALOPERATOR";
+                                                        break;
+                                               case DecafLexer.LOPER:
+                                                        type = "LOGICALOPERATOR";
+                                                        break;
                                                case DecafLexer.CHARL:
                                                         type = "CHARLITERAL";
                                                         break;
@@ -46,8 +55,11 @@ class Main {
                                                case DecafLexer.BOOL:
                                                         type = "BOOLEAN";
                                                         break;
-                                               case DecafLexer.INTL:
-                                                        type = "INTNUMBER";
+                                               case DecafLexer.HEXADECIMALNUM:
+                                                        type = "HEXADECIMALNUMBER";
+                                                        break;
+                                               case DecafLexer.DECIMALNUM:
+                                                        type = "DECIMALNUMBER";
                                                         break;
 
 		        			}
