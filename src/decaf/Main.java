@@ -52,8 +52,8 @@ class Main {
 		        			case DecafLexer.ID:
 		        				type = "IDENTIFIER";
 		        				break;
-                                               case DecafLexer.BOOL:
-                                                        type = "BOOLEAN";
+                                               case DecafLexer.BOOLL:
+                                                        type = "BOOLEANLITERAL";
                                                         break;
                                                case DecafLexer.HEXADECIMALNUM:
                                                         type = "HEXADECIMALNUMBER";
@@ -68,7 +68,7 @@ class Main {
 		        		done = true;
         			} catch(Exception e) {
         	        	// print the error:
-        	            System.out.println(CLI.infile+" "+e);
+        	            System.out.println(CLI.infile+" "+e+" em: "token.getText());
         	            lexer.skip();
         	        }
         		}

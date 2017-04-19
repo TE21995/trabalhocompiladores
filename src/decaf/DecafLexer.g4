@@ -20,11 +20,12 @@ RCURLY : '}' ;
 RW: 'boolean' | 'break' | 'callout' | 'class' | 'continue' | 'else' |
  'false' | 'for' | 'int' | 'return' | 'true' | 'void' ;
 
-AOPER: '*' | '+' | '-'| '/' | '%';
+OPER: AOPER | ROPER | LOPER;
+AOPER: '*' | '+' | '-' | '/' | '%';
 ROPER: '==' | '<' | '>' | '<=' | '>=' | '!=';
 LOPER: '&&' | '||' | '!'; 
 
-BOOL: 'true' | 'false' ;
+BOOLL: 'true' | 'false' ;
 
 fragment ALPHA: [a-zA-Z_] ;
 
