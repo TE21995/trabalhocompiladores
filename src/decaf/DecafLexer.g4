@@ -20,7 +20,6 @@ RCURLY : '}' ;
 RW: 'boolean' | 'break' | 'callout' | 'class' | 'continue' | 'else' |
  'false' | 'for' | 'int' | 'return' | 'true' | 'void' ;
 
-OPER: AOPER | ROPER | LOPER;
 AOPER: '*' | '+' | '-' | '/' | '%';
 ROPER: '==' | '<' | '>' | '<=' | '>=' | '!=';
 LOPER: '&&' | '||' | '!'; 
@@ -37,13 +36,12 @@ fragment DIGIT: [0-9] ;
 fragment OCTAL: [0-7] ;
 fragment HEXADECIMAL: [0-9a-fA-F] ;
 
-INTL: HEXADECIMALNUM | DECIMALNUM;
 HEXADECIMALNUM: '0x' HEXADECIMAL+ ;
 DECIMALNUM: DIGIT DIGIT* ;
 
-CHARL: ''' .*? ''' ;
+CHARL: '\'' .*? '\'' ;
 
-STRINGL: '"' .*? '"' ;
+STRINGL: '\"' .*? '\"' ;
 
 LCOMMENT: '//' .*? '\r'? '\n' -> skip ;
 SCOMMENT: '/*' .*? '*/' -> skip ;
