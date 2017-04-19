@@ -52,9 +52,6 @@ class Main {
 		        			case DecafLexer.ID:
 		        				type = "IDENTIFIER";
 		        				break;
-                                               case DecafLexer.BOOLL:
-                                                        type = "BOOLEANLITERAL";
-                                                        break;
                                                case DecafLexer.HEXADECIMALNUM:
                                                         type = "HEXADECIMALNUMBER";
                                                         break;
