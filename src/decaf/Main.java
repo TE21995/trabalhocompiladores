@@ -68,7 +68,7 @@ class Main {
 		        		done = true;
         			} catch(Exception e) {
         	        	// print the error:
-        	            System.out.println(CLI.infile+" "+e+" em: "token.getText());
+        	            System.out.println(CLI.infile+" "+e+" em: "+text);
         	            lexer.skip();
         	        }
         		}
