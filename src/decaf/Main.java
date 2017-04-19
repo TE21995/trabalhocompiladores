@@ -31,9 +31,25 @@ class Main {
 
 		        			switch (token.getType())
 		        			{
+                                               case DecafLexer.RW:
+                                                        type = "RESERVEDWORD";
+                                                        break;
+                                               case DecafLexer.CHARL:
+                                                        type = "CHARLITERAL";
+                                                        break;
+                                               case DecafLexer.STRINGL:
+                                                        type = "STRINGLITERAL";
+                                                        break;
 		        			case DecafLexer.ID:
-		        				type = " IDENTIFIER";
+		        				type = "IDENTIFIER";
 		        				break;
+                                               case DecafLexer.BOOL:
+                                                        type = "BOOLEAN";
+                                                        break;
+                                               case DecafLexer.INTL:
+                                                        type = "INTNUMBER";
+                                                        break;
+
 		        			}
 		        			System.out.println (token.getLine() + type + " " + text);
 		        		}

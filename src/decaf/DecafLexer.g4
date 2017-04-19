@@ -20,7 +20,9 @@ RCURLY : '}' ;
 RW: 'boolean' | 'break' | 'callout' | 'class' | 'continue' | 'else' |
  'false' | 'for' | 'int' | 'return' | 'true' | 'void' ;
 
-BOOLEANLITERAL: 'true' | 'false' ;
+AOPER: '*' | '+' | '-'| '/' | '%'; 
+
+BOOL: 'true' | 'false' ;
 
 fragment ALPHA: [a-zA-Z_] ;
 
@@ -32,13 +34,13 @@ fragment DIGIT: [0-9] ;
 fragment OCTAL: [0-7] ;
 fragment HEXADECIMAL: [0-9a-fA-F] ;
 
-INTLITERAL: HEXADECIMALNUM | DECIMALNUM ;
+INTL: HEXADECIMALNUM | DECIMALNUM;
 HEXADECIMALNUM: '0x' HEXADECIMAL+ ;
 DECIMALNUM: DIGIT DIGIT* ;
 
-CHARLITERAL: ''' (WS | .)*? ''' ;
+CHARL: ''' .*? ''' ;
 
-STRINGLITERAL: '"' (WS | .)*? '"' ;
+STRINGL: '"' .*? '"' ;
 
 LCOMMENT: '//' .*? '\r'? '\n' -> skip ;
 SCOMMENT: '/*' .*? '*/' -> skip ;
