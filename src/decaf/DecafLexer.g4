@@ -18,31 +18,40 @@ LCURLY : '{' ;
 RCURLY : '}' ;
 
 RW: 'boolean' | 'break' | 'callout' | 'class' | 'continue' | 'else' |
- 'false' | 'for' | 'int' | 'return' | 'true' | 'void' ;
-
-AOPER: '*' | '+' | '-' | '/' | '%' ;
-ROPER: '==' | '<' | '>' | '<=' | '>=' | '!=' ;
-LOPER: '&&' | '||' | '!'; 
+'false' | 'for' | 'int' | 'return' | 'true' | 'void' | 'if' ;
 
 fragment ALPHA: [a-zA-Z_] ;
 
 fragment ALPHANUM: ALPHA | DIGIT ;
 
-ID: ALPHA ALPHANUM* ;
-
 fragment DIGIT: [0-9] ;
 fragment OCTAL: [0-7] ;
 fragment HEXADECIMAL: [0-9a-fA-F] ;
 
+ID: ALPHA ALPHANUM* ;
+
+
 HEXADECIMALNUM: '0x' HEXADECIMAL+ ;
 DECIMALNUM: DIGIT DIGIT* ;
 
-CHARL: '\'' .*? '\'' ;
+fragment CHAR: ' ' | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' |
+ ',' | '-' | '.' | [0-9] | ':' | ';' | '<' | '=' | '>' | '?' | '@' |
+[A-Z] | '[' | ']' | '^' | '_' | '`' | [a-z] | '{' | '|' | '}' | '~' ;
 
-STRINGL: '\"' .*? '\"' ;  
+fragment ESC: '\\' ('n'|'t'|'\"'|'\\');
+
+CHARLIT: '\'' (ESC | CHAR) '\'' ;
+
+STRINGLIT: '\"' CHARLIT+ '\"' ;  
+
+OPE: '-' | '+' | '*' | '/' | '%' | '<' | '>' | '<=' | '>=' | '=' | '==' |
+'!=' | '&&' | '||' | '!' | ';' | ',' | '.' | '[' | ']' | '(' | ')' |'{' |
+']' ;
+
 
 LCOMMENT: '//' .*? '\r'? '\n' -> skip ;
 SCOMMENT: '/*' .*? '*/' -> skip ;
 
 WS : (' ' | '\t' | '\r' | '\n')+ -> skip ;
+
 

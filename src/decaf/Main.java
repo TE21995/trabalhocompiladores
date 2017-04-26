@@ -31,22 +31,10 @@ class Main {
 
 		        			switch (token.getType())
 		        			{
-                                               case DecafLexer.RW:
-                                                        type = "RESERVEDWORD";
-                                                        break;
-                                               case DecafLexer.AOPER:
-                                                        type = "ARITMETICOPERATOR";
-                                                        break;
-                                               case DecafLexer.ROPER:
-                                                        type = "RELATIONALOPERATOR";
-                                                        break;
-                                               case DecafLexer.LOPER:
-                                                        type = "LOGICALOPERATOR";
-                                                        break;
-                                               case DecafLexer.CHARL:
+                                               case DecafLexer.CHARLIT:
                                                         type = "CHARLITERAL";
                                                         break;
-                                               case DecafLexer.STRINGL:
+                                               case DecafLexer.STRINGLIT:
                                                         type = "STRINGLITERAL";
                                                         break;
 		        			case DecafLexer.ID:
