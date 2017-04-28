@@ -19,8 +19,8 @@ public class DecafParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		TK_class=1, LCURLY=2, RCURLY=3, RW=4, ID=5, HEXADECIMALNUM=6, DECIMALNUM=7, 
-		CHARLIT=8, STRINGLIT=9, OPE=10, LCOMMENT=11, SCOMMENT=12, WS=13;
+		TK_class=1, LCURLY=2, RCURLY=3, OPE=4, RW=5, ID=6, HEXADECIMALNUM=7, DECIMALNUM=8, 
+		CHARLIT=9, STRINGLIT=10, LCOMMENT=11, SCOMMENT=12, WS=13;
 	public static final int
 		RULE_program = 0;
 	public static final String[] ruleNames = {
@@ -31,8 +31,8 @@ public class DecafParser extends Parser {
 		null, null, "'{'", "'}'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "TK_class", "LCURLY", "RCURLY", "RW", "ID", "HEXADECIMALNUM", "DECIMALNUM", 
-		"CHARLIT", "STRINGLIT", "OPE", "LCOMMENT", "SCOMMENT", "WS"
+		null, "TK_class", "LCURLY", "RCURLY", "OPE", "RW", "ID", "HEXADECIMALNUM", 
+		"DECIMALNUM", "CHARLIT", "STRINGLIT", "LCOMMENT", "SCOMMENT", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -134,7 +134,7 @@ public class DecafParser extends Parser {
 
 	public static final String _serializedATN =
 		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\17\13\4\2\t\2\3\2"+
-		"\3\2\3\2\3\2\3\2\3\2\3\2\2\2\3\2\2\2\t\2\4\3\2\2\2\4\5\7\3\2\2\5\6\7\7"+
+		"\3\2\3\2\3\2\3\2\3\2\3\2\2\2\3\2\2\2\t\2\4\3\2\2\2\4\5\7\3\2\2\5\6\7\b"+
 		"\2\2\6\7\7\4\2\2\7\b\7\5\2\2\b\t\7\2\2\3\t\3\3\2\2\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
