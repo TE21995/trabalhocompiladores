@@ -40,12 +40,12 @@ class Main {
 		        			case DecafLexer.ID:
 		        				type = "IDENTIFIER";
 		        				break;
-                                               case DecafLexer.HEXADECIMALNUM:
-                                                        type = "HEXADECIMALNUMBER";
+                                               case DecafLexer.INTLIT:
+                                                        type = "INTLITERAL";
                                                         break;
-                                               case DecafLexer.DECIMALNUM:
-                                                        type = "DECIMALNUMBER";
-                                                        break;
+						default:
+							type = " saagagsag";
+							break;
 
 		        			}
 		        			System.out.println (token.getLine() + type + " " + text);
@@ -72,4 +72,3 @@ class Main {
         }
     }
 }
-
