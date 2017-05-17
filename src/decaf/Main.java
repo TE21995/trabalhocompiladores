@@ -32,17 +32,32 @@ class Main {
 		        			switch (token.getType())
 		        			{
                                                case DecafLexer.CHARLIT:
-                                                        type = "CHARLITERAL";
+                                                        type = " CHARLITERAL";
                                                         break;
                                                case DecafLexer.STRINGLIT:
-                                                        type = "STRINGLITERAL";
+                                                        type = " STRINGLITERAL";
                                                         break;
 		        			case DecafLexer.ID:
-		        				type = "IDENTIFIER";
+		        				type = " IDENTIFIER";
 		        				break;
-                                               case DecafLexer.INTLIT:
-                                                        type = "INTLITERAL";
+                                                case DecafLexer.INTLIT:
+                                                        type = " INTLITERAL";
                                                         break;
+                                                case DecafLexer.BOOLEANLITERAL:
+                                                        type = " BOOLEANLITERAL";
+                                                        break;
+                                                case DecafLexer.LCOMMENT:
+                                                        type = " LCOMMENT";
+                                                        break;
+                                                case DecafLexer.SCOMMENT:
+                                                        type = " SCOMMENT";
+                                                        break;
+                                                case DecafLexer.WS:
+                                                        type = " WS";
+                                                        break;
+                                                case DecafLexer.TYPE:
+                                                        type = " TYPE";
+                                                        break; 
 						default:
 							type = " saagagsag";
 							break;

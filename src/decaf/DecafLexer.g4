@@ -11,6 +11,13 @@ options
 
 LCURLY : '{' ;
 RCURLY : '}' ;
+LBAR : '[' ;
+RBAR : ']' ;
+LPA : '(' ;
+RPA : ')' ;
+PV: ';' ;
+
+TK_class: 'class Program';
 
 
 BOOLEAN: 'boolean' ;
@@ -24,11 +31,16 @@ INT: 'int' ;
 RETURN: 'return' ;
 VOID: 'void' ;
 IF: 'if' ;
-
+FALSE: 'false' ;
+TRUE: 'true' ;
+FORPAR: 'forpar' ;
 
 INTLIT: HEXADECIMAL | DECIMAL ;
 
+fragment
 HEXADECIMAL: '0x' HEXA+ ;
+
+fragment
 DECIMAL: DIGIT [1-9]* ;
 
 
@@ -39,22 +51,27 @@ fragment HEXA: [0-9a-fA-F] ;
 
 BOOLEANLITERAL: 'true' | 'false' ;
 
+TYPE: 'int' | 'boolean' ;
 
-CHARLIT: '\'' (CHAR | ESC)+ '\'' ;
-
-fragment
-CHAR: ' ' | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' |
- ',' | '-' | '.' | [0-9] | ':' | ';' | '<' | '=' | '>' | '?' | '@' |
-[A-Z] | '[' | ']' | '^' | '_' | '`' | [a-z] | '{' | '|' | '}' | '~' ;
-
-
-STRINGLIT: '\"' STRINGCHAR_REP? '\"' ;  
+// Character literals
+CHARLIT : '\'' SINGLE_CHARACTER '\'' | '\'' ESC '\'';
 
 fragment
-STRINGCHAR_REP:  STRINGCHAR+;
+SINGLE_CHARACTER : ~["'\\];
+
+//String Literals
+STRINGLIT : '"' STRING_CHARACTERS? '"';
 
 fragment
-STRINGCHAR: CHAR | ESC;
+STRING_CHARACTERS : STRING_CHARACTER+ ;
+
+fragment
+STRING_CHARACTER : ~['"\\] | ESC;
+
+// Escape Sequences for char and strings
+
+fragment
+ESC : '\\' [tnfr"'\\];
 
 
 ID: ALPHA ALPHANUM* ;
@@ -69,5 +86,5 @@ SCOMMENT: '/*' .*? '*/' -> skip ;
 
 WS : [ \t\r\n]+ -> skip ;
 
-fragment
-ESC: '\\' ('n'|'t'|'\"'|'\\'|'\'');
+//fragment
+//ESC: '\\' ('n'|'t'|'\"'|'\\'|'\'');

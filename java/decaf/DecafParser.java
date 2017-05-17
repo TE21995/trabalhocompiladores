@@ -19,8 +19,10 @@ public class DecafParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		TK_class=1, LCURLY=2, RCURLY=3, OPE=4, RW=5, ID=6, HEXADECIMALNUM=7, DECIMALNUM=8, 
-		CHARLIT=9, STRINGLIT=10, LCOMMENT=11, SCOMMENT=12, WS=13;
+		LCURLY=1, RCURLY=2, LBAR=3, RBAR=4, LPA=5, RPA=6, PV=7, TK_class=8, BOOLEAN=9, 
+		BREAK=10, CALLOUT=11, CLASS=12, CONTINUE=13, ELSE=14, FOR=15, INT=16, 
+		RETURN=17, VOID=18, IF=19, FALSE=20, TRUE=21, FORPAR=22, INTLIT=23, BOOLEANLITERAL=24, 
+		TYPE=25, CHARLIT=26, STRINGLIT=27, ID=28, LCOMMENT=29, SCOMMENT=30, WS=31;
 	public static final int
 		RULE_program = 0;
 	public static final String[] ruleNames = {
@@ -28,11 +30,15 @@ public class DecafParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, null, "'{'", "'}'"
+		null, "'{'", "'}'", "'['", "']'", "'('", "')'", "';'", "'class Program'", 
+		"'boolean'", "'break'", "'callout'", "'class'", "'continue'", "'else'", 
+		"'for'", "'int'", "'return'", "'void'", "'if'", "'false'", "'true'", "'forpar'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "TK_class", "LCURLY", "RCURLY", "OPE", "RW", "ID", "HEXADECIMALNUM", 
-		"DECIMALNUM", "CHARLIT", "STRINGLIT", "LCOMMENT", "SCOMMENT", "WS"
+		null, "LCURLY", "RCURLY", "LBAR", "RBAR", "LPA", "RPA", "PV", "TK_class", 
+		"BOOLEAN", "BREAK", "CALLOUT", "CLASS", "CONTINUE", "ELSE", "FOR", "INT", 
+		"RETURN", "VOID", "IF", "FALSE", "TRUE", "FORPAR", "INTLIT", "BOOLEANLITERAL", 
+		"TYPE", "CHARLIT", "STRINGLIT", "ID", "LCOMMENT", "SCOMMENT", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -85,10 +91,8 @@ public class DecafParser extends Parser {
 	}
 	public static class ProgramContext extends ParserRuleContext {
 		public TerminalNode TK_class() { return getToken(DecafParser.TK_class, 0); }
-		public TerminalNode ID() { return getToken(DecafParser.ID, 0); }
 		public TerminalNode LCURLY() { return getToken(DecafParser.LCURLY, 0); }
 		public TerminalNode RCURLY() { return getToken(DecafParser.RCURLY, 0); }
-		public TerminalNode EOF() { return getToken(DecafParser.EOF, 0); }
 		public ProgramContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -112,13 +116,9 @@ public class DecafParser extends Parser {
 			setState(2);
 			match(TK_class);
 			setState(3);
-			match(ID);
-			setState(4);
 			match(LCURLY);
-			setState(5);
+			setState(4);
 			match(RCURLY);
-			setState(6);
-			match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -133,9 +133,9 @@ public class DecafParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\17\13\4\2\t\2\3\2"+
-		"\3\2\3\2\3\2\3\2\3\2\3\2\2\2\3\2\2\2\t\2\4\3\2\2\2\4\5\7\3\2\2\5\6\7\b"+
-		"\2\2\6\7\7\4\2\2\7\b\7\5\2\2\b\t\7\2\2\3\t\3\3\2\2\2\2";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3!\t\4\2\t\2\3\2\3"+
+		"\2\3\2\3\2\3\2\2\2\3\2\2\2\7\2\4\3\2\2\2\4\5\7\n\2\2\5\6\7\3\2\2\6\7\7"+
+		"\4\2\2\7\3\3\2\2\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
