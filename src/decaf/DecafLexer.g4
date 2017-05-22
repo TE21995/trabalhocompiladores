@@ -16,6 +16,7 @@ RBAR : ']' ;
 LPA : '(' ;
 RPA : ')' ;
 PV: ';' ;
+VIG: ',' ;
 
 TK_class: 'class Program';
 
@@ -35,6 +36,33 @@ FALSE: 'false' ;
 TRUE: 'true' ;
 FORPAR: 'forpar' ;
 
+BINOPS: ARITMOP | RELOP | COMPOP | CONDOP ;
+
+ARITMOP: OPSOMA | OPSUBT | OPDIVI | OPMULT | OPREMA ;
+OPSOMA: '+' ;
+OPSUBT: '-' ;
+OPDIVI: '/' ;
+OPMULT: '*' ;
+OPREMA: '%' ;
+
+RELOP: BGTOP | SMTOP | BGEQTOP | SMEQTOP ;
+BGTOP: '>' ;
+SMTOP: '<' ;
+BGEQTOP: '>=' ;
+SMEQTOP: '<=' ;
+
+COMPOP: ISEQUAL | NOTEQUAL ;
+ISEQUAL: '==' ;
+NOTEQUAL: '!=' ;
+
+CONDOP: CONDAND | CONDOR ;
+CONDAND: '&&' ;
+CONDOR: '||' ;
+
+ASOP: '=' | '+=' | '-=' ;
+
+LIT: INTLIT | CHARLIT | BOOLEANLITERAL ;
+
 INTLIT: HEXADECIMAL | DECIMAL ;
 
 fragment
@@ -51,7 +79,6 @@ fragment HEXA: [0-9a-fA-F] ;
 
 BOOLEANLITERAL: 'true' | 'false' ;
 
-TYPE: 'int' | 'boolean' ;
 
 // Character literals
 CHARLIT : '\'' SINGLE_CHARACTER '\'' | '\'' ESC '\'';

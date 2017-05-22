@@ -52,12 +52,18 @@ class Main {
                                                 case DecafLexer.SCOMMENT:
                                                         type = " SCOMMENT";
                                                         break;
+                                                case DecafLexer.BINOPS:
+                                                        type = " OPERATOR";
+                                                        break;
                                                 case DecafLexer.WS:
                                                         type = " WS";
                                                         break;
-                                                case DecafLexer.TYPE:
-                                                        type = " TYPE";
-                                                        break; 
+                                                case DecafLexer.PV:
+                                                        type = " PVIG";
+                                                        break;
+                                                case DecafLexer.VIG:
+                                                        type = " VIRG";
+                                                        break;
 						default:
 							type = " saagagsag";
 							break;

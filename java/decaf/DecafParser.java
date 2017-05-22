@@ -19,10 +19,13 @@ public class DecafParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		LCURLY=1, RCURLY=2, LBAR=3, RBAR=4, LPA=5, RPA=6, PV=7, TK_class=8, BOOLEAN=9, 
-		BREAK=10, CALLOUT=11, CLASS=12, CONTINUE=13, ELSE=14, FOR=15, INT=16, 
-		RETURN=17, VOID=18, IF=19, FALSE=20, TRUE=21, FORPAR=22, INTLIT=23, BOOLEANLITERAL=24, 
-		TYPE=25, CHARLIT=26, STRINGLIT=27, ID=28, LCOMMENT=29, SCOMMENT=30, WS=31;
+		LCURLY=1, RCURLY=2, LBAR=3, RBAR=4, LPA=5, RPA=6, PV=7, VIG=8, TK_class=9, 
+		BOOLEAN=10, BREAK=11, CALLOUT=12, CLASS=13, CONTINUE=14, ELSE=15, FOR=16, 
+		INT=17, RETURN=18, VOID=19, IF=20, FALSE=21, TRUE=22, FORPAR=23, BINOPS=24, 
+		ARITMOP=25, OPSOMA=26, OPSUBT=27, OPDIVI=28, OPMULT=29, OPREMA=30, RELOP=31, 
+		BGTOP=32, SMTOP=33, BGEQTOP=34, SMEQTOP=35, COMPOP=36, ISEQUAL=37, NOTEQUAL=38, 
+		CONDOP=39, CONDAND=40, CONDOR=41, ASOP=42, LIT=43, INTLIT=44, BOOLEANLITERAL=45, 
+		CHARLIT=46, STRINGLIT=47, ID=48, LCOMMENT=49, SCOMMENT=50, WS=51;
 	public static final int
 		RULE_program = 0;
 	public static final String[] ruleNames = {
@@ -30,15 +33,20 @@ public class DecafParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'{'", "'}'", "'['", "']'", "'('", "')'", "';'", "'class Program'", 
+		null, "'{'", "'}'", "'['", "']'", "'('", "')'", "';'", "','", "'class Program'", 
 		"'boolean'", "'break'", "'callout'", "'class'", "'continue'", "'else'", 
-		"'for'", "'int'", "'return'", "'void'", "'if'", "'false'", "'true'", "'forpar'"
+		"'for'", "'int'", "'return'", "'void'", "'if'", "'false'", "'true'", "'forpar'", 
+		null, null, "'+'", "'-'", "'/'", "'*'", "'%'", null, "'>'", "'<'", "'>='", 
+		"'<='", null, "'=='", "'!='", null, "'&&'", "'||'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "LCURLY", "RCURLY", "LBAR", "RBAR", "LPA", "RPA", "PV", "TK_class", 
+		null, "LCURLY", "RCURLY", "LBAR", "RBAR", "LPA", "RPA", "PV", "VIG", "TK_class", 
 		"BOOLEAN", "BREAK", "CALLOUT", "CLASS", "CONTINUE", "ELSE", "FOR", "INT", 
-		"RETURN", "VOID", "IF", "FALSE", "TRUE", "FORPAR", "INTLIT", "BOOLEANLITERAL", 
-		"TYPE", "CHARLIT", "STRINGLIT", "ID", "LCOMMENT", "SCOMMENT", "WS"
+		"RETURN", "VOID", "IF", "FALSE", "TRUE", "FORPAR", "BINOPS", "ARITMOP", 
+		"OPSOMA", "OPSUBT", "OPDIVI", "OPMULT", "OPREMA", "RELOP", "BGTOP", "SMTOP", 
+		"BGEQTOP", "SMEQTOP", "COMPOP", "ISEQUAL", "NOTEQUAL", "CONDOP", "CONDAND", 
+		"CONDOR", "ASOP", "LIT", "INTLIT", "BOOLEANLITERAL", "CHARLIT", "STRINGLIT", 
+		"ID", "LCOMMENT", "SCOMMENT", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -133,9 +141,9 @@ public class DecafParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3!\t\4\2\t\2\3\2\3"+
-		"\2\3\2\3\2\3\2\2\2\3\2\2\2\7\2\4\3\2\2\2\4\5\7\n\2\2\5\6\7\3\2\2\6\7\7"+
-		"\4\2\2\7\3\3\2\2\2\2";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\65\t\4\2\t\2\3\2"+
+		"\3\2\3\2\3\2\3\2\2\2\3\2\2\2\7\2\4\3\2\2\2\4\5\7\13\2\2\5\6\7\3\2\2\6"+
+		"\7\7\4\2\2\7\3\3\2\2\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
