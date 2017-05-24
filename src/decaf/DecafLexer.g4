@@ -18,8 +18,7 @@ RPA : ')' ;
 PV: ';' ;
 VIG: ',' ;
 
-TK_class: 'class Program';
-
+TKCLASS: 'class Program';
 
 BOOLEAN: 'boolean' ;
 BREAK: 'break' ;
@@ -36,32 +35,6 @@ FALSE: 'false' ;
 TRUE: 'true' ;
 FORPAR: 'forpar' ;
 
-BINOPS: ARITMOP | RELOP | COMPOP | CONDOP ;
-
-ARITMOP: OPSOMA | OPSUBT | OPDIVI | OPMULT | OPREMA ;
-OPSOMA: '+' ;
-OPSUBT: '-' ;
-OPDIVI: '/' ;
-OPMULT: '*' ;
-OPREMA: '%' ;
-
-RELOP: BGTOP | SMTOP | BGEQTOP | SMEQTOP ;
-BGTOP: '>' ;
-SMTOP: '<' ;
-BGEQTOP: '>=' ;
-SMEQTOP: '<=' ;
-
-COMPOP: ISEQUAL | NOTEQUAL ;
-ISEQUAL: '==' ;
-NOTEQUAL: '!=' ;
-
-CONDOP: CONDAND | CONDOR ;
-CONDAND: '&&' ;
-CONDOR: '||' ;
-
-ASOP: '=' | '+=' | '-=' ;
-
-LIT: INTLIT | CHARLIT | BOOLEANLITERAL ;
 
 INTLIT: HEXADECIMAL | DECIMAL ;
 
@@ -79,6 +52,7 @@ fragment HEXA: [0-9a-fA-F] ;
 
 BOOLEANLITERAL: 'true' | 'false' ;
 
+TYPE: 'int' | 'boolean' ;
 
 // Character literals
 CHARLIT : '\'' SINGLE_CHARACTER '\'' | '\'' ESC '\'';
@@ -106,6 +80,37 @@ ID: ALPHA ALPHANUM* ;
 fragment ALPHA: [a-zA-Z_] ;
 
 fragment ALPHANUM: ALPHA | DIGIT ;
+
+ARITMOP: OPSOMA | OPSUBT | OPDIVI | OPMULT | OPREMA ;
+OPSOMA: '+' ;
+OPSUBT: '-' ;
+OPDIVI: '/' ;
+OPMULT: '*' ;
+OPREMA: '%' ;
+
+RELOP: BGTOP | SMTOP | BGEQTOP | SMEQTOP ;
+BGTOP: '>' ;
+SMTOP: '<' ;
+BGEQTOP: '>=' ;
+SMEQTOP: '<=' ;
+
+COMPOP: ISEQUAL | NOTEQUAL ;
+ISEQUAL: '==' ;
+NOTEQUAL: '!=' ;
+
+CONDOP: CONDAND | CONDOR ;
+CONDAND: '&&' ;
+CONDOR: '||' ;
+
+ASOP: EQU | MOREQU |LESSEQU ;
+EQU: '=' ;
+MOREQU: '+=' ;
+LESSEQU: '-=' ;
+
+BLANK: ' ' ;
+
+EXC: '!' ;
+
 
 
 LCOMMENT: '//' .*? '\r'? '\n' -> skip ;

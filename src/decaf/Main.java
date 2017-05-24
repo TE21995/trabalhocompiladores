@@ -31,13 +31,13 @@ class Main {
 
 		        			switch (token.getType())
 		        			{
-                                               case DecafLexer.CHARLIT:
+                                                case DecafLexer.CHARLIT:
                                                         type = " CHARLITERAL";
                                                         break;
-                                               case DecafLexer.STRINGLIT:
+                                                case DecafLexer.STRINGLIT:
                                                         type = " STRINGLITERAL";
                                                         break;
-		        			case DecafLexer.ID:
+                                                case DecafLexer.ID:
 		        				type = " IDENTIFIER";
 		        				break;
                                                 case DecafLexer.INTLIT:
@@ -46,23 +46,108 @@ class Main {
                                                 case DecafLexer.BOOLEANLITERAL:
                                                         type = " BOOLEANLITERAL";
                                                         break;
+                                               case DecafLexer.ARITMOP:
+                                                        type = " ARITMETICOPERATOR";
+                                                        break;
+                                               case DecafLexer.RELOP:
+                                                        type = " RELATIONALOPERATOR";
+                                                        break;
+                                               case DecafLexer.COMPOP:
+                                                        type = " COMPARATIVEOPERATOR";
+                                                        break;
+                                               case DecafLexer.CONDOP:
+                                                        type = " CONDITIONALOPERATOR";
+                                                        break;
+                                               case DecafLexer.ASOP:
+                                                        type = " ASSIGNOPERATOR";
+                                                        break;
+                                               case DecafLexer.LCURLY:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.RCURLY:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.LBAR:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.RBAR:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.LPA:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.RPA:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.PV:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.VIG:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.TKCLASS:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.BOOLEAN:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.BREAK:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.CALLOUT:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.CLASS:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.CONTINUE:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.ELSE:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.FOR:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.INT:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.RETURN:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.VOID:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.IF:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.FALSE:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.TRUE:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.FORPAR:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.TYPE:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.BLANK:
+                                                        type = " ";
+                                                        break;
+                                               case DecafLexer.EXC:
+                                                        type = " ";
+                                                        break;
+
                                                 case DecafLexer.LCOMMENT:
                                                         type = " LCOMMENT";
                                                         break;
                                                 case DecafLexer.SCOMMENT:
                                                         type = " SCOMMENT";
                                                         break;
-                                                case DecafLexer.BINOPS:
-                                                        type = " OPERATOR";
-                                                        break;
                                                 case DecafLexer.WS:
                                                         type = " WS";
-                                                        break;
-                                                case DecafLexer.PV:
-                                                        type = " PVIG";
-                                                        break;
-                                                case DecafLexer.VIG:
-                                                        type = " VIRG";
                                                         break;
 						default:
 							type = " saagagsag";
