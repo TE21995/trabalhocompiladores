@@ -9,12 +9,12 @@ options
   language=Java;
 }
 
-LCURLY : '{' ;
-RCURLY : '}' ;
-LBAR : '[' ;
-RBAR : ']' ;
-LPA : '(' ;
-RPA : ')' ;
+LCURLY: '{' ;
+RCURLY: '}' ;
+LBAR: '[' ;
+RBAR: ']' ;
+LPA: '(' ;
+RPA: ')' ;
 PV: ';' ;
 VIG: ',' ;
 
@@ -42,7 +42,7 @@ fragment
 HEXADECIMAL: '0x' HEXA+ ;
 
 fragment
-DECIMAL: DIGIT [1-9]* ;
+DECIMAL: DIGIT+ ;
 
 
 fragment DIGIT: [0-9] ;
@@ -51,8 +51,6 @@ fragment HEXA: [0-9a-fA-F] ;
 
 
 BOOLEANLITERAL: 'true' | 'false' ;
-
-TYPE: 'int' | 'boolean' ;
 
 // Character literals
 CHARLIT : '\'' SINGLE_CHARACTER '\'' | '\'' ESC '\'';

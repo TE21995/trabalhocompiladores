@@ -12,22 +12,27 @@ options
 
 program: TKCLASS LCURLY field_decl* method_decl* RCURLY ;
 
-field_decl: ( TYPE ( ID | ID LBAR INTLIT RBAR ) ) ( VIG TYPE ID LBAR INTLIT RBAR)* ( VIG TYPE ID )* PV ;
+field_decl: tyinit ( VIG type ID LBAR INTLIT RBAR)* ( VIG type ID )* PV ;
 
-method_decl: ( VOID | TYPE) ID ( LPA TYPE ID ( VIG TYPE ID )* RPA | LPA RPA ) block ;
+tyinit: type ID | type ID LBAR INTLIT RBAR ;
+
+method_decl: ( VOID | type ) ID ( LPA type ID ( VIG type ID )* RPA | LPA RPA ) block ;
 
 block: LCURLY var_decl* statement* RCURLY ;
 
-var_decl: TYPE ID ( VIG ID )* PV;
+var_decl: type ID ( VIG ID )* PV;
 
-statement: location ASOP expr  PV |
- methodcall PV |
- ( IF LPA expr RPA block | IF LPA expr RPA block ELSE block ) |
- FOR LPA ID EQU expr PV expr PV block RPA |
- ( RETURN | RETURN expr ) PV|
- BREAK PV |
- CONTINUE PV |
- block ;
+type: INT | BOOLEAN ;
+
+statement: location ASOP expr PV 
+| methodcall PV 
+| ( IF LPA expr RPA block 
+| IF LAP expr RPA block ELSE block) 
+| FOR ID EQU expr PV expr PV block 
+| ( RETURN expr PV | RETURN PV ) 
+| BREAK PV 
+| CONTINUE PV 
+| block ;
 
 methodcall: methodnome ( LPA expr ( VIG expr)* RPA | LPA RPA ) |  
  CALLOUT LPA STRINGLIT ( VIG calloutarg )*  RPA ;
