@@ -26,8 +26,7 @@ type: INT | BOOLEAN ;
 
 statement: location ASOP expr PV 
 | methodcall PV 
-| ( IF LPA expr RPA block 
-| IF LAP expr RPA block ELSE block) 
+| ( IF LPA expr RPA block | IF LAP expr RPA block ELSE block) 
 | FOR ID EQU expr PV expr PV block 
 | ( RETURN expr PV | RETURN PV ) 
 | BREAK PV 
