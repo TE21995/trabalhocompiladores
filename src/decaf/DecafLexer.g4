@@ -81,11 +81,11 @@ fragment ALPHA: [a-zA-Z_] ;
 
 fragment ALPHANUM: ALPHA | DIGIT ;
 
-ARITMOP: OPSOMA | OPSUBT | OPDIVI | OPMULT | OPREMA ;
+ARITMOP: OPMULT | OPDIVI | OPSOMA | OPSUBT | OPREMA ;
+OPMULT: '*' ;
+OPDIVI: '/' ;
 OPSOMA: '+' ;
 OPSUBT: '-' ;
-OPDIVI: '/' ;
-OPMULT: '*' ;
 OPREMA: '%' ;
 
 RELOP: BGTOP | SMTOP | BGEQTOP | SMEQTOP ;
@@ -107,10 +107,8 @@ EQU: '=' ;
 MOREQU: '+=' ;
 LESSEQU: '-=' ;
 
-BLANK: ' ' ;
 
 EXC: '!' ;
-
 
 
 LCOMMENT: '//' .*? '\r'? '\n' -> skip ;

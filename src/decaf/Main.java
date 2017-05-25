@@ -133,9 +133,6 @@ class Main {
                                                case DecafLexer.TYPE:
                                                         type = " ";
                                                         break;
-                                               case DecafLexer.BLANK:
-                                                        type = " ";
-                                                        break;
                                                case DecafLexer.EXC:
                                                         type = " ";
                                                         break;

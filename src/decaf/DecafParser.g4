@@ -10,26 +10,26 @@ options
   tokenVocab=DecafLexer;
 }
 
-program: TKCLASS LCURLY field_decl+ method_decl+  RCURLY ;
+program: TKCLASS LCURLY field_decl* method_decl* RCURLY ;
 
-field_decl: ( ID | ID LBAR INTLIT RBAR ) ( VIG ID LBAR INTLIT RBAR)* ( VIG ID )*  PV ;
+field_decl: ( TYPE ( ID | ID LBAR INTLIT RBAR ) ) ( VIG TYPE ID LBAR INTLIT RBAR)* ( VIG TYPE ID )* PV ;
 
-method_decl: (TYPE | VOID) ID LPA ( TYPE ID ( VIG TYPE ID )* | BLANK ) RPA block PV;
+method_decl: ( VOID | TYPE) ID ( LPA TYPE ID ( VIG TYPE ID )* RPA | LPA RPA ) block ;
 
-block: LCURLY var_decl+ statement+ RCURLY PV ;
+block: LCURLY var_decl* statement* RCURLY ;
 
 var_decl: TYPE ID ( VIG ID )* PV;
 
-statement: location ASOP expr |
- methodcall |
+statement: location ASOP expr  PV |
+ methodcall PV |
  ( IF LPA expr RPA block | IF LPA expr RPA block ELSE block ) |
  FOR LPA ID EQU expr PV expr PV block RPA |
- ( RETURN | RETURN expr ) |
- BREAK |
- CONTINUE |
+ ( RETURN | RETURN expr ) PV|
+ BREAK PV |
+ CONTINUE PV |
  block ;
 
-methodcall: methodnome LPA ( expr ( VIG expr)* | BLANK )  RPA | 
+methodcall: methodnome ( LPA expr ( VIG expr)* RPA | LPA RPA ) |  
  CALLOUT LPA STRINGLIT ( VIG calloutarg )*  RPA ;
 
 methodnome: ID ;
