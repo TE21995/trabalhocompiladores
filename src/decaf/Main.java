@@ -59,7 +59,7 @@ class Main {
                                                         type = " CONDITIONALOPERATOR";
                                                         break;
                                                case DecafLexer.ASOP:
-                                                        type = " ASSIGNOPERATOR";
+                                                        type = " ASSINGOPERATORS";
                                                         break;
                                                case DecafLexer.LCURLY:
                                                         type = " ";
@@ -128,9 +128,6 @@ class Main {
                                                         type = " ";
                                                         break;
                                                case DecafLexer.FORPAR:
-                                                        type = " ";
-                                                        break;
-                                               case DecafLexer.TYPE:
                                                         type = " ";
                                                         break;
                                                case DecafLexer.EXC:

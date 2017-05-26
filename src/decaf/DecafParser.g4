@@ -26,9 +26,9 @@ type: INT | BOOLEAN ;
 
 statement: location ASOP expr PV 
 | methodcall PV 
-| ( IF LPA expr RPA block | IF LAP expr RPA block ELSE block) 
+| ( IF LPA expr RPA block | IF LPA expr RPA block ELSE block) 
 | FOR ID EQU expr PV expr PV block 
-| ( RETURN expr PV | RETURN PV ) 
+| ( RETURN PV | RETURN expr PV ) 
 | BREAK PV 
 | CONTINUE PV 
 | block ;
@@ -42,7 +42,7 @@ location: ID | ID LBAR expr RBAR ;
 
 expr: location | methodcall | lit | expr binops expr | OPSUBT expr | EXC expr | LPA expr RPA ;
 
-lit: INTLIT | CHARLIT | BOOLEANLITERAL ;
+lit: OPSUBT INTLIT | INTLIT | CHARLIT | BOOLEANLITERAL ;
 
 binops: ARITMOP | RELOP | COMPOP | CONDOP ;
 
