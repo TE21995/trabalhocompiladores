@@ -101,7 +101,7 @@ CONDAND: '&&' ;
 CONDOR: '||' ;
 
 ASOP: EQU | MOREQU | LESSEQU ;
-EQU: '=' ;
+EQU: '=';
 MOREQU: '+=' ;
 LESSEQU: '-=' ;
 

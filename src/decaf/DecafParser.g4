@@ -26,9 +26,9 @@ type: INT | BOOLEAN ;
 
 statement: location ASOP expr PV 
 | methodcall PV 
-| ( IF LPA expr RPA block | IF LPA expr RPA block ELSE block) 
-| FOR ID EQU expr PV expr PV block 
-| ( RETURN PV | RETURN expr PV ) 
+| IF LPA expr RPA LCURLY var_decl* statement* RCURLY ( ELSE LCURLY var_decl* statement* RCURLY )?
+| FOR ID EQU expr PV expr PV LCURLY var_decl* statement* RCURLY
+| RETURN expr? PV  
 | BREAK PV 
 | CONTINUE PV 
 | block ;
@@ -40,9 +40,9 @@ methodnome: ID ;
 
 location: ID | ID LBAR expr RBAR ;
 
-expr: location | methodcall | lit | expr binops expr | OPSUBT expr | EXC expr | LPA expr RPA ;
+expr: location | methodcall | lit | OPSUBT expr | expr binops expr | EXC expr | LPA expr RPA ;
 
-lit: OPSUBT INTLIT | INTLIT | CHARLIT | BOOLEANLITERAL ;
+lit: INTLIT | CHARLIT | BOOLEANLITERAL ;
 
 binops: ARITMOP | RELOP | COMPOP | CONDOP ;
 
