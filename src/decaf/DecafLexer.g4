@@ -79,28 +79,23 @@ fragment ALPHA: [a-zA-Z_] ;
 
 fragment ALPHANUM: ALPHA | DIGIT ;
 
-ARITMOP: OPMULT | OPDIVI | OPSOMA | OPSUBT | OPREMA ;
-OPMULT: '*' ;
-OPDIVI: '/' ;
-OPSOMA: '+' ;
-OPSUBT: '-' ;
-OPREMA: '%' ;
+MULT: '*' ;
+DIVI: '/' ;
+SOMA: '+' ;
+SUBT: '-' ;
+REMA: '%' ;
 
-RELOP: BGTOP | SMTOP | BGEQTOP | SMEQTOP ;
 BGTOP: '>' ;
 SMTOP: '<' ;
 BGEQTOP: '>=' ;
 SMEQTOP: '<=' ;
 
-COMPOP: ISEQUAL | NOTEQUAL ;
 ISEQUAL: '==' ;
 NOTEQUAL: '!=' ;
 
-CONDOP: CONDAND | CONDOR ;
 CONDAND: '&&' ;
 CONDOR: '||' ;
 
-ASOP: EQU | MOREQU | LESSEQU ;
 EQU: '=';
 MOREQU: '+=' ;
 LESSEQU: '-=' ;

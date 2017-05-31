@@ -46,20 +46,53 @@ class Main {
                                                 case DecafLexer.BOOLEANLITERAL:
                                                         type = " BOOLEANLITERAL";
                                                         break;
-                                               case DecafLexer.ARITMOP:
-                                                        type = " ARITMETICOPERATOR";
+                                               	case DecafLexer.MULT:
+                                                       	type = " ";
+                                                       	break;
+                                                case DecafLexer.DIVI:
+                                                        type = " ";
                                                         break;
-                                               case DecafLexer.RELOP:
-                                                        type = " RELATIONALOPERATOR";
+                                                case DecafLexer.SOMA:
+                                                        type = " ";
                                                         break;
-                                               case DecafLexer.COMPOP:
-                                                        type = " COMPARATIVEOPERATOR";
+                                                case DecafLexer.SUBT:
+                                                        type = " ";
                                                         break;
-                                               case DecafLexer.CONDOP:
-                                                        type = " CONDITIONALOPERATOR";
+                                                case DecafLexer.REMA:
+                                                        type = " ";
                                                         break;
-                                               case DecafLexer.ASOP:
-                                                        type = " ASSINGOPERATORS";
+                                                case DecafLexer.BGTOP:
+                                                        type = " ";
+                                                        break;
+                                                case DecafLexer.SMTOP:
+                                                        type = " ";
+                                                        break;
+                                                case DecafLexer.BGEQTOP:
+                                                        type = " ";
+                                                        break;
+                                                case DecafLexer.SMEQTOP:
+                                                        type = " ";
+                                                        break;
+                                                case DecafLexer.ISEQUAL:
+                                                        type = " ";
+                                                        break;
+                                                case DecafLexer.NOTEQUAL:
+                                                        type = " ";
+                                                        break;
+                                                case DecafLexer.CONDAND:
+                                                        type = " ";
+                                                        break;
+                                                case DecafLexer.CONDOR:
+                                                        type = " ";
+                                                        break;
+                                                case DecafLexer.EQU:
+                                                        type = " ";
+                                                        break;
+                                                case DecafLexer.MOREQU:
+                                                        type = " ";
+                                                        break;
+                                                case DecafLexer.LESSEQU:
+                                                        type = " ";
                                                         break;
                                                case DecafLexer.LCURLY:
                                                         type = " ";

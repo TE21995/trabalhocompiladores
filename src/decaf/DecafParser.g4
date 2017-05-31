@@ -24,7 +24,7 @@ var_decl: type ID ( VIG ID )* PV;
 
 type: INT | BOOLEAN ;
 
-statement: location ASOP expr PV 
+statement: location asop expr PV 
 | methodcall PV 
 | IF LPA expr RPA LCURLY var_decl* statement* RCURLY ( ELSE LCURLY var_decl* statement* RCURLY )?
 | FOR ID EQU expr PV expr PV LCURLY var_decl* statement* RCURLY
@@ -40,10 +40,21 @@ methodnome: ID ;
 
 location: ID | ID LBAR expr RBAR ;
 
-expr: location | methodcall | lit | OPSUBT expr | expr binops expr | EXC expr | LPA expr RPA ;
+expr: location | methodcall | lit | SUBT expr | expr binops expr | EXC expr | LPA expr RPA ;
 
 lit: INTLIT | CHARLIT | BOOLEANLITERAL ;
 
-binops: ARITMOP | RELOP | COMPOP | CONDOP ;
+binops: aritmop | relop | compop | condop ;
+
+aritmop: MULT | DIVI | SOMA | SUBT | REMA ;
+
+relop: BGTOP | SMTOP | BGEQTOP | SMEQTOP ;
+
+compop: ISEQUAL | NOTEQUAL ;
+
+condop: CONDAND | CONDOR ;
+
+asop: EQU | MOREQU | LESSEQU ;
+
 
 calloutarg: expr | STRINGLIT ; 

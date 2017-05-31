@@ -150,6 +150,56 @@ public interface DecafParserListener extends ParseTreeListener {
 	 */
 	void exitBinops(DecafParser.BinopsContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DecafParser#aritmop}.
+	 * @param ctx the parse tree
+	 */
+	void enterAritmop(DecafParser.AritmopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DecafParser#aritmop}.
+	 * @param ctx the parse tree
+	 */
+	void exitAritmop(DecafParser.AritmopContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DecafParser#relop}.
+	 * @param ctx the parse tree
+	 */
+	void enterRelop(DecafParser.RelopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DecafParser#relop}.
+	 * @param ctx the parse tree
+	 */
+	void exitRelop(DecafParser.RelopContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DecafParser#compop}.
+	 * @param ctx the parse tree
+	 */
+	void enterCompop(DecafParser.CompopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DecafParser#compop}.
+	 * @param ctx the parse tree
+	 */
+	void exitCompop(DecafParser.CompopContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DecafParser#condop}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondop(DecafParser.CondopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DecafParser#condop}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondop(DecafParser.CondopContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DecafParser#asop}.
+	 * @param ctx the parse tree
+	 */
+	void enterAsop(DecafParser.AsopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DecafParser#asop}.
+	 * @param ctx the parse tree
+	 */
+	void exitAsop(DecafParser.AsopContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DecafParser#calloutarg}.
 	 * @param ctx the parse tree
 	 */
