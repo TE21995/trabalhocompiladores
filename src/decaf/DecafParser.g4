@@ -27,7 +27,7 @@ type: INT | BOOLEAN ;
 statement: location asop expr PV 
 | methodcall PV 
 | IF LPA expr RPA LCURLY var_decl* statement* RCURLY ( ELSE LCURLY var_decl* statement* RCURLY )?
-| FOR ID EQU expr PV expr PV LCURLY var_decl* statement* RCURLY
+| FOR ID EQU expr VIG expr LCURLY var_decl* statement* RCURLY
 | RETURN expr? PV  
 | BREAK PV 
 | CONTINUE PV 
